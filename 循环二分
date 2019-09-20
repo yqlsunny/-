@@ -1,0 +1,34 @@
+#include<stdio.h>
+#define N 10
+void main()
+{
+	int i,m,a[N],mid,l=0,r=N-1;
+	printf("ÇëÊäÈë%d¸öÕûÊý:\n",N);
+	for(i=0;i<N;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("ÇëÊäÈëÄãÏëÒª²éÕÒµÄÕûÊý:");
+	scanf("%d",&m);
+	while(l<=r)
+	{
+		mid=(r-l)/2+l;
+		if(m==a[mid])
+		{
+			printf("¸ÃÕûÊýÔÚÊý×éÏÂ±êÎª%d\n",mid);
+			break;
+		}
+		if(m<a[mid])
+		{
+			r=mid-1;
+		}
+		if(m>a[mid])
+		{
+			l=mid+1;
+		}
+	}
+	if(l>r)
+	{
+		printf("¸ÃÊý×é²»´æÔÚ¸ÃÕûÊý.\n");
+	}
+}
