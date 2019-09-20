@@ -1,0 +1,41 @@
+#include<stdio.h>
+#define N 12
+void main()
+{
+	int i,m,a[N];
+	void fun(int a[],int l,int r,int m);
+	printf("ÇëÊäÈë%d¸öÓÐÐòÕûÊý:\n",N);
+	for(i=0;i<N;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("ÇëÊäÈëÒª²éÕÒµÄÕûÊý£º");
+	scanf("%d",&m);
+	fun(a,0,N-1,m);
+}
+void diguierfen(int a[],int l,int r,int m)
+{
+	int mid;
+	mid=(r-l)/2+l;
+	if(l<=r)
+	{
+	if(m==a[mid])
+	{
+		printf("¸ÃÕûÊýÔÚÊý×éÖÐÏÂ±êÎª:%d\n",mid);
+	}
+	if(m<a[mid])
+	{
+		fun(a,l,mid-1,m);
+	}
+	if(m>a[mid])
+	{
+		fun(a,mid+1,r,m);
+	}
+	}
+	else
+	{
+		printf("¸ÃÊý×é²»´æÔÚÓÐ¸ÃÕûÊý¡£\n");
+	}
+}
+
+
