@@ -1,0 +1,43 @@
+#include<stdio.h>
+#define N 12
+void fmin(int a[],int k,int q)
+{
+	int i,min=a[0],x=0;
+	if(k>0)
+	{
+		for(i=0;i<N-q;i++)
+		{
+			if(min>a[i])
+			{
+				min=a[i];
+				x=i;
+			}
+		}
+		a[x]=a[N-q-1];
+		q++;
+		k--;
+		printf("第%d个最小数为%d：",q,min);
+		printf("\n");
+		fmin(a,k,q);
+	}
+	else if(k==0)
+	{
+		printf("全部输出完%d个最小数.",q);
+	}
+	else
+	{
+		printf("输入k错误!");
+	}
+	
+}
+void main()
+{
+	int a[N],i,k;
+	for(i=0;i<N;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("找出k个最小的数k=");
+	scanf("%d",&k);
+	fmin(a,k,0);
+}
